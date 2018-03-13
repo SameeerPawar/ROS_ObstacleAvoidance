@@ -230,10 +230,14 @@ class Node:
         direct = 0
         thresh = 0 if self.safe else 1
         for i in range(8):
+            # If distance is greater than 0.5 + Threshold - Not Safe
             if rangeL[i] < 0.5 + thresh:
+                # Check whether the obstacle is on left or right side
                 if i < 4:
+                    # Turn right
                     direct = 1
                 else:
+                    # Turn Left
                     direct = -1
                 # print("False")
                 self.safe = False
